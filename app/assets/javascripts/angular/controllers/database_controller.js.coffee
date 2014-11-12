@@ -4,7 +4,7 @@ window.app.controller 'DatabaseController', ($scope, Database) ->
 
   Database.query().then (database) ->
     $scope.database = database
-    console.log $scope.database
+    $scope.database.children ||= []
 
   $scope.save = ->
     $scope.database.save().then -> alert("Done!")
