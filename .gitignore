@@ -16,7 +16,6 @@ db/*.sqlite3
 
 .sass-cache
 /config/config.yml
-/config/secrets.yml
 
 # Ignore application configuration
 /config/application.yml
