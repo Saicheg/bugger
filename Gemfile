@@ -9,8 +9,6 @@ gem 'jquery-rails', '~> 4.0.0.beta2'
 gem 'underscore-rails'
 
 gem 'sass-rails', '~> 5.0.0.beta1'
-gem 'twilio-ruby', '~> 3.12'
-gem 'nexmo'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
