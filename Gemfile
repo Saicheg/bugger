@@ -36,6 +36,8 @@ gem 'rails-assets-angular-xeditable'
 gem 'redis', '~> 3.0.5'
 gem 'font-awesome-rails'
 
+gem 'thin', '~> 1.6.2'
+
 group :development, :test do
   # Call 'debugger' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -45,7 +47,6 @@ group :development, :test do
   gem 'web-console', '~> 2.0.0.beta4'
 
   gem 'annotate'
-  gem 'thin', '~> 1.6.2'
   gem 'quiet_assets'
   gem 'letter_opener'
 end
