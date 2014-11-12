@@ -5,6 +5,11 @@ class DatabaseController < ApplicationController
   def index
   end
 
+  def create
+    create_and_store_database
+    render :index
+  end
+
   def update
     database.update_attributes(database_params)
     render :index

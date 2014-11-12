@@ -6,6 +6,13 @@ window.app.controller 'DatabaseController', ($scope, Database) ->
     $scope.database = database
     $scope.database.children ||= []
 
+  $scope.new = ->
+    if confirm 'Are you sure?'
+      database = new Database()
+      database.save().then  (data) ->
+        $scope.database = data
+        $scope.database.children ||= []
+
   $scope.save = ->
     $scope.database.save().then -> alert("Done!")
 
