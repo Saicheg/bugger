@@ -1,4 +1,5 @@
 //= require js-routes
+//= require jquery
 
 //= require bootstrap-sprockets
 //= require underscore
@@ -9,3 +10,4 @@
 //= require ng-rails-csrf
 //= require angular-ui-bootstrap
 //= require angular-ui-bootstrap-tpls
+//= require xeditable

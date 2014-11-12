@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  root 'app#index'
+  root 'database#index'
+
+  resources :database do
+
+  end
 end

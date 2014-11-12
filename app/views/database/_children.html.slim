@@ -1,0 +1,31 @@
+tab heading='Children'
+  .row
+    table.table.table-bordered.table-hover.table-condensed
+      thead
+        tr
+          th Name
+          th Height
+          th BirthDay
+          th Edit
+      tbody
+        tr data-ng-repeat="c in database.children | filter: visible"
+          td
+            span editable-text="c.name" data-e-name="name" data-e-form="rowform"
+              | {{ c.name }}
+          td -
+          td -
+          td
+
+            form.form-buttons.form-inline editable-form='' name="rowform" data-ng-show="rowform.$visible"
+              button type="submit" data-ng-disabled="rowform.$waiting" class="btn btn-primary"
+                | save
+              button type="button" data-ng-disabled="rowform.$waiting" data-ng-click="rowform.$cancel()" class="btn btn-default"
+                | cancel
+
+            .buttons data-ng-show="!rowform.$visible"
+              button.btn.btn-primary data-ng-click="rowform.$show()"
+                | Edit
+              button.btn.btn-danger data-ng-click="removeChild(c)"
+                | Remove
+
+    button data-ng-click="addChild()" New

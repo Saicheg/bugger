@@ -1,0 +1,21 @@
+div data-ng-controller='DatabaseController'
+
+  header.navbar.navbar-static-top
+    .container
+      .row
+        nav.collapse.navbar-collapse role='navigation'
+          ul.nav.navbar-nav
+            li
+              a href='javasction: void(0)' New
+            li
+              a href='javascript: void(0)' data-ng-click='save()' Save
+            li
+              a href='javasction: void(0)' Export
+            li
+              a href='javasction: void(0)' Import
+
+  .container
+    .row
+      tabset
+        - %w(general husband wife children).each do |template|
+          = render partial: template
