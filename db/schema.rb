@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141112190116) do
+ActiveRecord::Schema.define(version: 20141113212127) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20141112190116) do
   add_index "children", ["database_id"], name: "index_children_on_database_id", using: :btree
 
   create_table "databases", force: true do |t|
-    t.string   "desription"
+    t.string   "description"
     t.date     "mariage_date"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

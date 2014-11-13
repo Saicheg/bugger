@@ -6,13 +6,23 @@ div data-ng-controller='DatabaseController'
         nav.collapse.navbar-collapse role='navigation'
           ul.nav.navbar-nav
             li
-              a href='javasction: void(0)' data-ng-click='new()' New
+              a href='javasction: void(0)' data-ng-click='new()'
+                i class="fa fa-file"
+                | New
             li
-              a href='javascript: void(0)' data-ng-click='save()' Save
+              a href='javasction: void(0)'
+                i class="fa fa-external-link"
+                | Export
             li
-              a href='javasction: void(0)' Export
+              a href='javasction: void(0)'
+                i class="fa fa-external-link"
+                | Import
+
+          ul.nav.navbar-.av.navbar-right data-ng-if='databaseChanged'
             li
-              a href='javasction: void(0)' Import
+              a href='javascript: void(0)' data-ng-click='save()'
+                i class="fa fa-save"
+                | Save
 
   .container
     .row
@@ -28,7 +38,6 @@ div data-ng-controller='DatabaseController'
       div flash-alert='success' data-active-class="in" class="alert fade" duration='2500'
         span class="alert-message"
           | {{flash.message}}
-
 
       tabset
         - %w(general husband wife children).each do |template|

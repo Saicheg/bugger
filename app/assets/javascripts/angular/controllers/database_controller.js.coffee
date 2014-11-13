@@ -1,6 +1,7 @@
 window.app.controller 'DatabaseController', ($scope, flash, Database) ->
 
   $scope.visible = {_destroy: '0'}
+  $scope.databaseChanged = false
 
   Database.query().then (database) ->
     $scope.database = database
@@ -16,6 +17,7 @@ window.app.controller 'DatabaseController', ($scope, flash, Database) ->
   $scope.save = ->
     $scope.database.save().then ->
       flash.success = 'Saved!'
+      $scope.databaseChanged = false
     , ->
       flash.error = 'Error!'
 
@@ -52,3 +54,8 @@ window.app.controller 'DatabaseController', ($scope, flash, Database) ->
       diff = a.diff(b, 'years')
 
       $scope.database.wife.age = diff if diff > 0
+
+   $scope.$watch 'database', (newValue, oldValue) ->
+    if newValue? && oldValue?
+      $scope.databaseChanged = true
+   , true
