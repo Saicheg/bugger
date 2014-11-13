@@ -9,3 +9,5 @@
 //= require angular-ui-bootstrap
 //= require angular-ui-bootstrap-tpls
 //= require xeditable
+//= require moment
+//= require angular-flash

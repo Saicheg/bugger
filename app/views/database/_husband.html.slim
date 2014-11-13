@@ -11,3 +11,15 @@ tab heading='Husband'
     .form-group
       label Last Name
       input.form-control type='text' data-ng-model='database.husband.lastName'
+
+    .form-group
+      label Birth Day
+      p.input-group
+        input.form-control type='text' data-ng-model='database.husband.birthday' data-datepicker-popup='yyyy-MM-dd' data-is-open='database.husband.isOpen' data-show-button-bar='false' data-min-date="'1900-01-01'"
+        span.input-group-btn
+          button type="button" class="btn btn-default" data-ng-click="showPicker(database.husband, $event)"
+            i class="fa fa-calendar"
+
+    .form-group
+      label Age
+      input.form-control type='text' data-ng-model='database.husband.age' disabled='disabled'

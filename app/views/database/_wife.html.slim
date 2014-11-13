@@ -3,3 +3,23 @@ tab heading='Wife'
     .form-group
       label First Name
       input.form-control type='text' data-ng-model='database.wife.firstName'
+
+    .form-group
+      label Middle Name
+      input.form-control type='text' data-ng-model='database.wife.middleName'
+
+    .form-group
+      label Last Name
+      input.form-control type='text' data-ng-model='database.wife.lastName'
+
+    .form-group
+      label Birth Day
+      p.input-group
+        input.form-control type='text' data-ng-model='database.wife.birthday' data-datepicker-popup='yyyy-MM-dd' data-is-open='database.wifeIsOpen' data-show-button-bar='false' data-min-date="'1900-01-01'"
+        span.input-group-btn
+          button type="button" class="btn btn-default" data-ng-click="showPickerWife($event)"
+            i class="fa fa-calendar"
+
+    .form-group
+      label Age
+      input.form-control type='text' data-ng-model='database.wife.age' disabled='disabled'

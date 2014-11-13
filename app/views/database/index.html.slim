@@ -16,6 +16,20 @@ div data-ng-controller='DatabaseController'
 
   .container
     .row
+
+      div flash-alert='info' data-active-class="in" class="alert fade" duration='2500'
+        span class="alert-message"
+          | {{flash.message}}
+
+      div flash-alert='error' data-active-class="in" class="alert fade" duration='2500'
+        span class="alert-message"
+          | {{flash.message}}
+
+      div flash-alert='success' data-active-class="in" class="alert fade" duration='2500'
+        span class="alert-message"
+          | {{flash.message}}
+
+
       tabset
         - %w(general husband wife children).each do |template|
           = render partial: template
