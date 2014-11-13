@@ -3,6 +3,14 @@ class DatabaseController < ApplicationController
   helper_method :database
 
   def index
+    respond_to do |format|
+      format.json
+      format.html
+      format.dat do
+        data = Base64.encode64(Rabl::Renderer.json(database, 'database/export', view_path: 'app/views'))
+        send_data data, filename: 'database.dat'
+      end
+    end
   end
 
   def create
