@@ -1,17 +1,17 @@
 object @database
 
-attributes :id, :description, :mariage_date
+attributes :description, :mariage_date
 
-child :husband do
-  attributes :id, :first_name, :last_name, :middle_name, :birthday
+child :husband => :husband_attributes do
+  attributes :first_name, :last_name, :middle_name, :birthday
 end
 
-child :wife do
-  attributes :id, :first_name, :last_name, :middle_name, :birthday
+child :wife => :wife_attributes do
+  attributes :first_name, :last_name, :middle_name, :birthday
 end
 
-child :children do
-  attributes :id, :name, :height, :birthday
+child :children => :children_attributes do
+  attributes :name, :height, :birthday
 
   node(:_destroy) { '0' }
 end

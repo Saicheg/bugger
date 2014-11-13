@@ -3,6 +3,8 @@ window.app.controller 'DatabaseController', ($scope, flash, Database) ->
   $scope.visible = {_destroy: '0'}
   $scope.databaseChanged = false
 
+  $("input#export").change -> $(this).closest('form').submit()
+
   Database.query().then (database) ->
     $scope.database = database
     $scope.database.children ||= []
@@ -59,3 +61,7 @@ window.app.controller 'DatabaseController', ($scope, flash, Database) ->
     if newValue? && oldValue?
       $scope.databaseChanged = true
    , true
+
+   $scope.exportDatabase = ->
+     $('#export').click()
+     false

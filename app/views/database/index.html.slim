@@ -14,9 +14,12 @@ div data-ng-controller='DatabaseController'
                 i class="fa fa-external-link"
                 | Export
             li
-              a href='javasction: void(0)'
+              a href='javasction: void(0)' data-ng-click='exportDatabase()'
                 i class="fa fa-external-link"
                 | Import
+
+              = form_tag database_index_path(format: :dat), multipart: true do
+                input#export type='file' name='file'
 
           ul.nav.navbar-.av.navbar-right data-ng-if='databaseChanged'
             li

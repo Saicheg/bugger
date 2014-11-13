@@ -14,8 +14,17 @@ class DatabaseController < ApplicationController
   end
 
   def create
-    create_and_store_database
-    render :index
+    respond_to do |format|
+      format.json do
+        create_and_store_database
+        render :index
+      end
+      format.dat do
+        database = Database.create!(database_import_params)
+        session[:database_id] = database.id
+        redirect_to database_index_path
+      end
+    end
   end
 
   def update
@@ -47,6 +56,16 @@ class DatabaseController < ApplicationController
                                      wife_attributes: [:id, :first_name, :last_name, :middle_name, :birthday],
                                      children_attributes: [:id, :name, :height, :birthday, :_destroy])
 
+  end
+
+  def database_import_params
+    return @database_import_params if @database_import_params
+    data = HashWithIndifferentAccess.new(JSON.parse(Base64.decode64(params[:file].read)))
+    data[:husband_attributes] ||= {}
+    data[:wife_attributes] ||= {}
+    data[:children_attributes] ||= []
+    @database_import_params = data
+    data
   end
 
 end
