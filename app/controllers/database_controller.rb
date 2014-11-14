@@ -47,7 +47,7 @@ class DatabaseController < ApplicationController
   end
 
   def database_id
-    session[:database_id]
+    session[:database_id] || params[:id]
   end
 
   def database_params
