@@ -4,8 +4,8 @@ class DatabaseController < ApplicationController
 
   def index
     respond_to do |format|
-      format.json
       format.html
+      format.json
       format.dat do
         data = Base64.encode64(Rabl::Renderer.json(database, 'database/export', view_path: 'app/views'))
         send_data data, filename: 'database.dat'

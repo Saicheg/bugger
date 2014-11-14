@@ -1,4 +1,4 @@
-object @database
+object database
 
 attributes :id, :description, :mariage_date
 
